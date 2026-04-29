@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>Scanner Camera</title>
-    <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
-    <style>
-      body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #222; color: white; padding-top: 20px; margin: 0; }
-      #reader { width: 100%; max-width: 400px; border-radius: 8px; overflow: hidden; background: white; }
-    </style>
-  </head>
-  <body>
-    <h2>Scan ID</h2>
-    <div id="reader"></div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Gate Scanner</title>
 
-    <script>
-      // Get the GAS URL to return to
-      const urlParams = new URLSearchParams(window.location.search);
-      const callbackUrl = urlParams.get('callbackUrl');
+<link rel="stylesheet" href="style.css">
+<script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+</head>
 
-      if (!callbackUrl) {
-          document.body.innerHTML = "<h3 style='color:red; text-align:center; padding:20px;'>Error: Missing Callback URL. Please open this camera from the main portal.</h3>";
-      } else {
-          let html5QrcodeScanner = new Html5QrcodeScanner(
-            "reader", { fps: 10, qrbox: { width: 250, height: 250 } }, false
-          );
-          html5QrcodeScanner.render(onScanSuccess);
+<body>
 
-          function onScanSuccess(decodedText) {
-            // Stop scanning immediately so it doesn't trigger multiple times
-            html5QrcodeScanner.pause();
-            
-            // Redirect the browser back to Google Apps Script
-            window.location.href = callbackUrl + "?scannedId=" + encodeURIComponent(decodedText);
-          }
-      }
-    </script>
-  </body>
+<div class="container">
+
+  <div class="header">
+    <h1>Campus Gate Scanner</h1>
+    <p>Scan QR for Entry / Exit</p>
+  </div>
+
+  <button id="start-btn">🎥 Start Camera</button>
+
+  <div id="reader"></div>
+
+  <div id="status-box" class="idle">
+    Waiting to start scanner...
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
 </html>

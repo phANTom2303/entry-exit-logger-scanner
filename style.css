@@ -1,0 +1,132 @@
+:root {
+  /* --- Shared Admin Dark Theme Variables --- */
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --bg-hover: #334155;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --accent-cyan: #22d3ee;
+  
+  /* Status Colors */
+  --status-in: #34d399;
+  --status-in-bg: rgba(52, 211, 153, 0.15);
+  --status-out: #fb7185;
+  --status-out-bg: rgba(251, 113, 133, 0.15);
+  
+  /* Additional UI Colors */
+  --border: #334155;
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.15);
+  --error: #f87171;
+  --error-bg: rgba(248, 113, 113, 0.15);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.header p {
+  color: var(--text-muted);
+}
+
+#start-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: var(--accent-cyan);
+  color: var(--bg-dark);
+  margin-bottom: 18px;
+  transition: filter 0.2s;
+}
+
+#start-btn:hover {
+  filter: brightness(1.1);
+}
+
+#reader {
+  width: 100%;
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+/* Make sure the internal html5-qrcode text isn't black */
+#reader * {
+  color: var(--text-main) !important;
+}
+
+#status-box {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+/* Status States for Dark Mode */
+.idle {
+  background: var(--bg-card);
+  color: var(--text-muted);
+  border-color: var(--border) !important;
+}
+
+.processing {
+  background: var(--warning-bg);
+  color: var(--warning);
+  border-color: rgba(251, 191, 36, 0.3) !important;
+}
+
+.success-in {
+  background: var(--status-in-bg);
+  color: var(--status-in);
+  border-color: rgba(52, 211, 153, 0.3) !important;
+}
+
+.success-out {
+  background: var(--status-out-bg);
+  color: var(--status-out);
+  border-color: rgba(251, 113, 133, 0.3) !important;
+}
+
+.error {
+  background: var(--error-bg);
+  color: var(--error);
+  border-color: rgba(248, 113, 113, 0.3) !important;
+}
