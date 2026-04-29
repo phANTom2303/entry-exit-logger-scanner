@@ -71,7 +71,7 @@ function onScanSuccess(decodedText){
   .then(response => {
     if(response.success){
       const cls = response.status === "IN" ? "success-in" : "success-out";
-      updateStatus(`[${response.status}] Welcome, ${response.name}`, cls);
+      updateStatus(`[${response.status}] : ${response.name}`, cls);
 
       // --- THE ROUND TRIP REDIRECT ---
       // Wait 2.5 seconds so the user can see the "Welcome" message
