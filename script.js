@@ -5,7 +5,7 @@ let scanner;
 let isProcessing = false;
 
 // 1. YOUR GOOGLE APPS SCRIPT URL
-const API_URL = "https://script.google.com/macros/s/AKfycbyUeQqkVCYK6_W_qCXSG3cjQCjC8ISfnnbU5JU4-8mwhV7ry7HarMSg07WNRR2TfF0P/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbyY4ZqmOUb0BRoqFOEmJzWMRmaILb6H6VQG0IokaFKagavQgx3cdXvSSJ5tCMC8Te5J/exec";
 
 function updateStatus(msg, cls){
   statusBox.textContent = msg;
