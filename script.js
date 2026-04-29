@@ -72,14 +72,7 @@ function onScanSuccess(decodedText){
     if(response.success){
       const cls = response.status === "IN" ? "success-in" : "success-out";
       updateStatus(`[${response.status}] : ${response.name}`, cls);
-
-      // --- THE ROUND TRIP REDIRECT ---
-      // Wait 2.5 seconds so the user can see the "Welcome" message
-      setTimeout(() => {
-        // Redirects back to the main Google Apps Script UI
-        window.location.href = API_URL + "?status=success";
-      }, 2500);
-
+      resetScanner();
     } else {
       updateStatus("Declined: " + response.message, "error");
       resetScanner();
